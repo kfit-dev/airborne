@@ -92,7 +92,15 @@ module Airborne
         next expected_value.call(actual_value) if expected_value.is_a?(Proc)
         next expect(actual_value.to_s).to match(expected_value) if expected_value.is_a?(Regexp)
 
-        expect(actual_value).to eq(expected_value)
+        expect(actual_value).to eq(expected_value),
+        <<-MESSAGE
+
+"#{prop}"
+
+expected #{actual_value.inspect}
+     got #{expected_value.inspect}
+(compared using ==)
+MESSAGE
       end
     end
 

@@ -9,6 +9,27 @@
 
 RSpec driven API testing framework
 
+## KFit's fork
+This fork adds JSON property name to matching expectation failure message.
+
+From:
+```shell
+Failure/Error: expect_json("listings.0",
+
+       expected 0.0
+            got 6865.2
+       (compared using ==)
+```
+To:
+```shell
+Failure/Error: expect_json("listings.0",
+
+       distance_in_kms
+
+       expected 0.0
+            got 6865.2
+       (compared using ==)
+```
 ## Installation
 
 Install Airborne:
